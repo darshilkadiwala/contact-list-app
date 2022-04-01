@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,14 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAj-IF-hZV">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name Here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAj-IF-hZV">
                                 <rect key="frame" x="20" y="118" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hHp-cD-Wbd">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Phone Number Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hHp-cD-Wbd">
                                 <rect key="frame" x="20" y="182" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -40,7 +41,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Contact" largeTitleDisplayMode="never" id="dae-FF-3xC">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="9qE-y4-idm">
+                        <barButtonItem key="rightBarButtonItem" image="checkmark.circle" catalog="system" style="plain" id="9qE-y4-idm">
                             <connections>
                                 <action selector="saveContactAction:" destination="BYZ-38-t0r" id="rSy-UP-gxe"/>
                             </connections>
@@ -96,7 +97,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Contacts" id="bna-GN-cRN">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" style="plain" id="rQS-o6-ZRz">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" image="pencil.circle.fill" catalog="system" style="plain" id="rQS-o6-ZRz">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Lob-AK-JOl">
                                 <rect key="frame" x="20" y="5" width="92" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -107,7 +108,14 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="avu-yz-osn">
+                        <barButtonItem key="rightBarButtonItem" title="Add" style="plain" id="avu-yz-osn">
+                            <imageReference key="image" image="plus.circle.fill" catalog="system" renderingMode="hierarchical">
+                                <hierarchicalColors>
+                                    <color systemColor="labelColor"/>
+                                    <color systemColor="secondaryLabelColor"/>
+                                    <color systemColor="tertiaryLabelColor"/>
+                                </hierarchicalColors>
+                            </imageReference>
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" identifier="addContact" id="GMB-b7-2ua"/>
                             </connections>
@@ -182,7 +190,7 @@
                     <navigationItem key="navigationItem" title="Contact Details" largeTitleDisplayMode="never" id="Ktt-Eh-gVe">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="YHg-lF-c0W">
                             <connections>
-                                <segue destination="9En-An-cgD" kind="showDetail" id="hMo-fK-ObO"/>
+                                <segue destination="9En-An-cgD" kind="show" id="hMo-fK-ObO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -195,18 +203,55 @@
             </objects>
             <point key="canvasLocation" x="2608.6956521739135" y="422.54464285714283"/>
         </scene>
-        <!--View Controller-->
+        <!--Update Contect-->
         <scene sceneID="jQ4-yL-Da8">
             <objects>
                 <viewController id="9En-An-cgD" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tdc-8d-XZN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PU0-RY-MJB">
+                                <rect key="frame" x="20" y="118" width="62" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kaw-sM-Yn0">
+                                <rect key="frame" x="20" y="157" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyG-8L-EBt">
+                                <rect key="frame" x="20" y="220" width="156" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter phone number here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PdM-wM-pgm">
+                                <rect key="frame" x="20" y="257" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="KJw-qh-ziq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KJw-qh-ziq" firstAttribute="trailing" secondItem="Kaw-sM-Yn0" secondAttribute="trailing" constant="20" id="1Gr-Gc-ta6"/>
+                            <constraint firstItem="KJw-qh-ziq" firstAttribute="trailing" secondItem="PdM-wM-pgm" secondAttribute="trailing" constant="20" id="Ado-wF-0Dn"/>
+                            <constraint firstItem="PU0-RY-MJB" firstAttribute="top" secondItem="KJw-qh-ziq" secondAttribute="top" constant="30" id="BoF-lj-bCS"/>
+                            <constraint firstItem="PU0-RY-MJB" firstAttribute="leading" secondItem="KJw-qh-ziq" secondAttribute="leading" constant="20" id="Dc1-Pv-lEh"/>
+                            <constraint firstItem="PdM-wM-pgm" firstAttribute="top" secondItem="KJw-qh-ziq" secondAttribute="top" constant="169" id="LjK-gB-XT4"/>
+                            <constraint firstItem="PdM-wM-pgm" firstAttribute="top" secondItem="eyG-8L-EBt" secondAttribute="bottom" constant="8" symbolic="YES" id="M1O-dv-yR6"/>
+                            <constraint firstItem="Kaw-sM-Yn0" firstAttribute="leading" secondItem="KJw-qh-ziq" secondAttribute="leading" constant="20" id="bZi-b1-TRd"/>
+                            <constraint firstItem="PdM-wM-pgm" firstAttribute="leading" secondItem="KJw-qh-ziq" secondAttribute="leading" constant="20" id="et5-js-XIm"/>
+                            <constraint firstItem="eyG-8L-EBt" firstAttribute="leading" secondItem="KJw-qh-ziq" secondAttribute="leading" constant="20" id="lUp-0M-jHn"/>
+                            <constraint firstItem="Kaw-sM-Yn0" firstAttribute="top" secondItem="PU0-RY-MJB" secondAttribute="bottom" constant="10" id="nmK-Zc-TiF"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="abj-lr-7C7">
+                    <navigationItem key="navigationItem" title="Update Contect" id="abj-lr-7C7">
                         <barButtonItem key="backBarButtonItem" title="Back" id="RoZ-Wa-nSd"/>
+                        <barButtonItem key="rightBarButtonItem" title="Update" image="checkmark.circle" catalog="system" style="plain" id="9bw-Ge-Gxe"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zCH-3S-kly" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -234,11 +279,23 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="placeholderTextColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
